@@ -1,6 +1,6 @@
-# Number Formatter & Parser
-這是一個用於數字格式化與解析的 npm package，根據不同的瀏覽器區域設定，以逗號作為數字的分隔符號。
-An npm package for number formatting and parsing, formatted with commas based on different browser region settings.
+# Parse Localized Number
+根據不同的瀏覽器區域設定，解析數字和格式化數字的 npm 套件。
+An npm package for number formatting and parsing based on different browser region settings.
 
 ## 安裝 Installation
 
