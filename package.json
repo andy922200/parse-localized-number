@@ -1,6 +1,6 @@
 {
   "name": "parse-localized-number",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "description": "An npm package for number formatting and parsing based on different browser region settings.",
   "repository": {
