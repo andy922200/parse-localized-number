@@ -1,0 +1,11 @@
+# .npmignore
+node_modules/
+src/
+*.test.ts
+*.test.js
+jest.config.cjs
+vite.config.ts
+tsconfig.json
+.eslintrc.cjs
+.gitignore
+.git/

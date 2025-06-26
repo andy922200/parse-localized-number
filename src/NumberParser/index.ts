@@ -5,8 +5,8 @@
  */
 
 type NumberParser = {
-  parse: (input: string) => number;
-};
+  parse: (input: string) => number
+}
 
 export const createNumberParser = (locale: string): NumberParser => {
   const parts = new Intl.NumberFormat(locale).formatToParts(12345.6)
@@ -15,22 +15,19 @@ export const createNumberParser = (locale: string): NumberParser => {
   ].reverse()
   const index = new Map(numerals.map((d, i) => [d, i]))
 
-  const groupSymbol = parts.find((d) => d.type === "group")?.value || ""
-  const decimalSymbol = parts.find((d) => d.type === "decimal")?.value || ""
-  const _group = new RegExp(
-    `[${groupSymbol.replace(/\s/g, "\\s").replace(/\./g, "\\.")}]`,
-    "g",
-  )
-  const _decimal = new RegExp(`[${decimalSymbol.replace(/\./g, "\\.")}]`)
-  const _numeral = new RegExp(`[${numerals.join("")}]`, "g")
+  const groupSymbol = parts.find((d) => d.type === 'group')?.value || ''
+  const decimalSymbol = parts.find((d) => d.type === 'decimal')?.value || ''
+  const _group = new RegExp(`[${groupSymbol.replace(/\s/g, '\\s').replace(/\./g, '\\.')}]`, 'g')
+  const _decimal = new RegExp(`[${decimalSymbol.replace(/\./g, '\\.')}]`)
+  const _numeral = new RegExp(`[${numerals.join('')}]`, 'g')
   const _index = (d: string) => index.get(d)
 
   return {
     parse: (string: string): number => {
       string = string
         .trim()
-        .replace(_group, "")
-        .replace(_decimal, ".")
+        .replace(_group, '')
+        .replace(_decimal, '.')
         .replace(_numeral, (d) => _index(d) as unknown as string)
 
       return string ? +string : NaN
